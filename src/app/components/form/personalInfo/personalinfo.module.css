@@ -1,0 +1,71 @@
+.fieldset{
+    padding: 3rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border: none;
+}
+.fieldsethidden{
+    display: none;
+}
+.fieldset section{
+    width: 100%;
+    display: grid;
+    padding-top: 0.75rem;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+}
+.fieldset section input{
+    border: 1px solid var(--Coolgray);
+    border-radius: 4px;
+    padding: 0.75rem 0.75rem;
+    width: 100%;
+    grid-column: 1/3;
+    grid-row: 2/3;
+}
+.fieldset section input:hover{
+    border: 1px solid var(--Marineblue);
+}
+.fieldset section input::placeholder{
+    font-weight: var(--fontweight700);
+    font-size: 1rem;
+}
+.fieldset section label{
+    color: var(--Marineblue);
+    font-weight: var(--fontweight700);
+    font-size: 1.25rem;
+    padding-bottom: 0.5rem;
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+.fieldset section p{
+    grid-column: 2/3;
+    grid-row: 1/2;
+    font-size: 0.95rem;
+    padding: 0;
+    text-align: end;
+    color: var(--Strawberryred);
+    font-weight: var(--fontweight700);
+    visibility: hidden;
+}
+/* error */
+.errorshown p{
+    visibility: visible !important;
+}
+.errorshown input{
+    border: 1px solid var(--Strawberryred) !important;
+}
+.errorshown input::placeholder{
+    color: var(--Strawberryred) !important;
+}
+@media screen and (min-width:768px) {
+    .fieldset section{
+        padding-top: 1rem;
+    }
+    .fieldset section p{
+        grid-column: 2/3;
+        grid-row: 1/2;
+        text-align: end;
+        align-content: end;
+    }
+}
