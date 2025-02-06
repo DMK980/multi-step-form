@@ -2,6 +2,7 @@
 import {useContext, useRef,useEffect}from 'react'
 import { store } from '../../../state'
 import styles from "./personalinfo.module.css"
+import globalformcss from "../globalform.module.css"
 
 const Personalinfo = () => {
     
@@ -11,52 +12,42 @@ const Personalinfo = () => {
     const visible = activelink == "personal info"? "fieldset":"fieldsethidden"
     
     useEffect(() => {
-        let childrenoffieldset = fieldset.current.children
         // error handling
-        if(error == "error"){
-            for(let x=0; x < childrenoffieldset.length;x++){
-                if(childrenoffieldset[x].id == "name_container" && !name &&
-                !childrenoffieldset[x].classList.contains(`${personalinfocss.errorshown}`)){
-                    childrenoffieldset[x].classList.add(`${personalinfocss.errorshown}`)
-                }else if(childrenoffieldset[x].id == "name_container" && name &&
-                childrenoffieldset[x].classList.contains(`${personalinfocss.errorshown}`)){
-                    childrenoffieldset[x].classList.remove(`${personalinfocss.errorshown}`)
-                }else if(childrenoffieldset[x].id == "email_container" && !emailinput &&
-                !childrenoffieldset[x].classList.contains(`${personalinfocss.errorshown}`)){
-                    childrenoffieldset[x].classList.add(`${personalinfocss.errorshown}`)
-                }else if(childrenoffieldset[x].id == "email_container" && emailinput &&
-                childrenoffieldset[x].classList.contains(`${personalinfocss.errorshown}`)){
-                    childrenoffieldset[x].classList.remove(`${personalinfocss.errorshown}`)
-                }else if(childrenoffieldset[x].id == "telephone_container" && !phonenumber &&
-                !childrenoffieldset[x].classList.contains(`${personalinfocss.errorshown}`)){
-                    childrenoffieldset[x].classList.add(`${personalinfocss.errorshown}`)
-                }else if(childrenoffieldset[x].id == "telephone_container" && phonenumber &&
-                childrenoffieldset[x].classList.contains(`${personalinfocss.errorshown}`)){
-                    childrenoffieldset[x].classList.remove(`${personalinfocss.errorshown}`)
-                }
-            }
-        }
-        return () => {
-            
-        };
-    }, [error,name,phonenumber,emailinput]);
+        if (error === "error") {
+            const fields = [
+                { id: "name_container", value: name },
+                { id: "email_container", value: emailinput },
+                { id: "telephone_container", value: phonenumber }
+            ];
 
-    const onchange = (e)=>{
-        if(e.target.id == "name"){
-            dispatch({type:"NAMEUPDATE",payload:{name:e.target.value}})
+            fields.forEach(field => {
+                const element = fieldset.current.querySelector(`#${field.id}`);
+                if (!field.value) {
+                    element.classList.add(styles.errorshown);
+                } else {
+                    element.classList.remove(styles.errorshown);
+                }
+            });
         }
-        if(e.target.id == "email"){
-            dispatch({type:"EMAILUPDATE",payload:{emailinput:e.target.value}})
-        }
-        if(e.target.id == "telephone_number"){
-            dispatch({type:"PHONEUPDATE",payload:{phonenumber:e.target.value}})
+    }, [error, name, phonenumber, emailinput]);
+
+    const onchange = (e) => {
+        const actions = {
+            name: {type: "NAMEUPDATE", field: "name"},
+            email: {type: "EMAILUPDATE", field: "emailinput"},
+            telephone_number: {type: "PHONEUPDATE", field: "phonenumber"}
+        };
+        
+        const action = actions[e.target.id];
+        if (action) {
+            dispatch({type: action.type, payload: {[action.field]: e.target.value}});
         }
     }
 
     return (
-        <fieldset className={`${styles[visible]} ${""}`}ref={fieldset}>
-            <h1 className={`${""}`}>Personal info</h1>
-            <p className={`${""}`}>Please provide your name, email address, and phone number.</p>
+        <fieldset className={`${styles[visible]} ${globalformcss.mainContainer}`}ref={fieldset}>
+            <h1 className={`${globalformcss.header}`}>Personal info</h1>
+            <p className={`${globalformcss.subtext}`}>Please provide your name, email address, and phone number.</p>
             <section id="name_container">
                 <label htmlFor="name">Name</label>
                 <p>This field is required</p>

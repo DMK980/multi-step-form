@@ -8,32 +8,21 @@ export default function Sidebar(){
 
     const [state,dispatch] = useContext(store);
     const{activelink} = state;
-    const links = useRef();
+    const links = useRef(); 
 
     useEffect(() => {
-        let arraylinks = links.current.children;
-        for(let x=0; x <arraylinks.length;x++){
-            if(arraylinks[x].id == activelink){
-                if(arraylinks[x].classList.length == 0){
-                    arraylinks[x].classList.add(`${styles.active}`)
-                }
-            } else if(arraylinks[x].id != activelink){
-                if(arraylinks[x].classList.length != 0){
-                    arraylinks[x].classList.remove(`${styles.active}`)
-                }
-            }
-        }
-        return () => {   
-        };
-    }, [links,activelink]);
+        const arrayLinks = Array.from(links.current.children);
+        arrayLinks.forEach(link => {
+            link.classList.toggle(styles.active, link.id === activelink);
+        });
+    }, [activelink]);
 
     const onClick = (event)=>{
-        console.log(event.target.id === "personal info")
         dispatch({type:"ACTIVELINK",payload:event.target.id})
     }
 
     return (
-        <aside className={styles.aside}>
+        <aside className={`${styles.aside}`} style={{pointerEvents: activelink === "confirmation"? "none":"auto"}}>
             <nav ref={links}>
                 <button id="personal info"type="button"className={styles.active}onClick={onClick}>
                     <span>1</span>

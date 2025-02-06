@@ -1,0 +1,46 @@
+.card{
+    display: flex;
+    padding: 0.85rem 0.5rem;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: transparent;
+    border: 2px solid var(--Lightgray);
+    border-radius: 5px;
+    width: 100%;
+    color: var(--Marineblue);
+    height: max-content;
+}
+.activestyling{
+    border: 2px solid hsl(243, 100%, 62%,0.4);
+    background-color: hsl(228, 100%, 84%,0.2);
+}
+.card div{
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    gap:0.25rem;
+}
+.card div p{
+    color: var(--Coolgray);
+}
+.card div .promostyle{
+    color: var(--Marineblue);
+    font-weight: var(--fontweight500);
+}
+@media screen and (min-width:768px) {
+    .card{
+        flex-direction: column;
+        align-items: start;
+        gap: 3rem;
+        max-width: max(160px,fit-content);
+    }
+    .card div p{
+        font-size: 1rem;
+    }
+    .card h4{
+        font-size: 1rem;
+    }
+    .card img{
+        width: 1rem;
+    } 
+}

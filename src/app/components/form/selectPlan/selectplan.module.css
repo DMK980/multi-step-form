@@ -1,0 +1,45 @@
+.fieldset{
+    display: block;
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 1rem;
+    border: none;
+}
+.fieldsethidden{
+    display: none;
+}
+.fieldset section{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.5rem 0;
+}
+.description{
+    padding-top: 0.5rem ;
+    color: var(--Coolgray);
+}
+
+.planselectmonyr{
+    color: var(--Marineblue);
+}
+.monyr{
+    text-align: center;
+    background-color: hsl(229, 24%, 87%,0.2);
+    color: var(--Coolgray);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: var(--fontweight500);
+}
+.switchthumb{
+    color: yellow;
+}
+@media screen and (min-width:768px) {
+    .fieldset section{
+        flex-direction: row;
+        justify-content: center;
+    }
+    .description{
+        font-size: 1rem;
+    }
+    
+}
