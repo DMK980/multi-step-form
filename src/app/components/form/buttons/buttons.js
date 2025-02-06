@@ -2,7 +2,7 @@
 import {useContext} from 'react'
 import styles from "./buttons.module.css"
 import { Button } from '@mui/material'
-import { store } from '../../state'
+import { store } from '../../../state'
 
 
 const Buttoncomp = () => {

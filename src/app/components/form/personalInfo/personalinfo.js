@@ -2,7 +2,7 @@
 import {useContext, useRef,useEffect}from 'react'
 import { store } from '../../../state'
 import styles from "./personalinfo.module.css"
-import globalformcss from "../globalform.module.css"
+import formcss from "../form.module.css"
 
 const Personalinfo = () => {
     
@@ -45,9 +45,9 @@ const Personalinfo = () => {
     }
 
     return (
-        <fieldset className={`${styles[visible]} ${globalformcss.mainContainer}`}ref={fieldset}>
-            <h1 className={`${globalformcss.header}`}>Personal info</h1>
-            <p className={`${globalformcss.subtext}`}>Please provide your name, email address, and phone number.</p>
+        <fieldset className={`${styles[visible]} ${formcss.mainContainer}`}ref={fieldset}>
+            <h1 className={`${formcss.header}`}>Personal info</h1>
+            <p className={`${formcss.subtext}`}>Please provide your name, email address, and phone number.</p>
             <section id="name_container">
                 <label htmlFor="name">Name</label>
                 <p>This field is required</p>

@@ -2,7 +2,7 @@
 import { useContext, useRef, useEffect } from 'react'
 import { store } from '../../../state'
 import styles from './addons.module.css'
-import globalformcss from "../globalform.module.css"
+import formcss from "../form.module.css"
 
 const AddOns = () => {
     const [state, dispatch] = useContext(store)
@@ -31,9 +31,9 @@ const AddOns = () => {
     const customizableprofile = getPrice("customizableprofile");
     
     return (
-        <fieldset className={`${styles[visible]} ${globalformcss.mainContainer}`}>
-           <h1  className={`${globalformcss.header}`}>Pick add-ons</h1>
-            <p className={`${styles.topdescription} ${globalformcss.subtext}`}>Add-ons help enhance your gaming experience</p>
+        <fieldset className={`${styles[visible]} ${formcss.mainContainer}`}>
+           <h1  className={`${formcss.header}`}>Pick add-ons</h1>
+            <p className={`${styles.topdescription} ${formcss.subtext}`}>Add-ons help enhance your gaming experience</p>
             <section ref={addonss}>
                 <label htmlFor='onlineservice'>
                     <div className={styles.leftcontainer}>

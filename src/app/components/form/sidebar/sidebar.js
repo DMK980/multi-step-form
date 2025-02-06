@@ -2,6 +2,7 @@
 import {useContext,useEffect,useRef} from 'react'
 import styles from "./sidebar.module.css"
 import { store } from "../../../state";
+import formcss from "../form.module.css"
 
 
 export default function Sidebar(){
@@ -22,7 +23,7 @@ export default function Sidebar(){
     }
 
     return (
-        <aside className={`${styles.aside}`} style={{pointerEvents: activelink === "confirmation"? "none":"auto"}}>
+        <aside className={`${styles.aside} ${formcss.aside}`} style={{pointerEvents: activelink === "confirmation"? "none":"auto"}}>
             <nav ref={links}>
                 <button id="personal info"type="button"className={styles.active}onClick={onClick}>
                     <span>1</span>

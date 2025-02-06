@@ -4,7 +4,7 @@ import { store } from "@/app/state"
 import { useContext } from "react"
 import Switch from "@mui/material/Switch"
 import Cards from "./plans/cards"
-import globalformcss from "../globalform.module.css"
+import formcss from "../form.module.css"
 
 
 function SelectPlan(){
@@ -18,9 +18,9 @@ function SelectPlan(){
         dispatch({type:"SWITCHPLAN"})
     }
     return (
-        <fieldset className={`${styles[visible]} ${globalformcss.mainContainer}`}>
-            <h1 className={`${globalformcss.header}`}>Select your plan</h1>
-            <p className={`${styles.description} ${globalformcss.subtext}`}>You have the option of monthly or yearly billing.</p>
+        <fieldset className={`${styles[visible]} ${formcss.mainContainer}`}>
+            <h1 className={`${formcss.header}`}>Select your plan</h1>
+            <p className={`${styles.description} ${formcss.subtext}`}>You have the option of monthly or yearly billing.</p>
             <section>
                 <Cards planchoice="Arcade"/>
                 <Cards planchoice="Advanced"/>

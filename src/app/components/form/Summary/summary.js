@@ -2,7 +2,7 @@
 import {useContext} from 'react'
 import styles from "./summary.module.css"
 import { store } from '../../../state'
-import globlformcss from "../globalform.module.css"
+import formcss from "../form.module.css"
 
 const Summary = () => {
 
@@ -24,9 +24,9 @@ const Summary = () => {
     
     
     return (
-        <fieldset className={` ${styles[visible]} ${globlformcss.mainContainer}`}>
-            <h1 className={`${globlformcss.header}`}>Finishing up</h1>
-            <p className={`${styles.description} ${globlformcss.subtext}`}>Double-check everything looks OK before confirming</p>
+        <fieldset className={` ${styles[visible]} ${formcss.mainContainer}`}>
+            <h1 className={`${formcss.header}`}>Finishing up</h1>
+            <p className={`${styles.description} ${formcss.subtext}`}>Double-check everything looks OK before confirming</p>
             <section className={`${styles.centersection}`}>
                 <section className={`${styles.centersection_top}`}>
                     <div className={`${styles.selectedoption} ${styles.plan}`}>

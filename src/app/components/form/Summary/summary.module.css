@@ -7,7 +7,7 @@
 }
 .description{
     padding: .5rem 0 1.5rem 0;
-    font-size: clamp(0.85rem,1.25vw,1.25rem);
+    font-size: 1rem;
 }
 .centersection{
     width: 100%;
@@ -25,7 +25,7 @@
     padding: 0.5rem;
 }
 .selectedoption p {
-    font-size: clamp(0.85rem,1.25vw,1.5rem);
+    font-size: 1rem;
 }
 .plan{
     border-bottom: 1px solid hsl(231, 11%, 63%,0.3);
@@ -33,12 +33,12 @@
 .selectedplan{
     color: var(--Marineblue);
     font-weight: 600;
-    font-size: clamp(0.85rem,2vw,1.5rem);
+    font-size: 1rem;
 }
 .changes{
     border-bottom: 2px solid hsl(231, 11%, 63%,0.9);
     cursor: pointer;
-    font-size: clamp(0.75rem,1.5vw,1rem);
+    font-size: 1rem;
 }
 .changes:hover{
     color: var(--Marineblue) ;

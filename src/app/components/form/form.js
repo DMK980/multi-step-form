@@ -6,7 +6,7 @@ import Sidebar from "./sidebar/sidebar"
 import Form from "next/form"
 import Summary from "./Summary/summary"
 import Confirmation from "./confirmation/confirmation"
-import Buttoncomp from "../buttons/buttons"
+import Buttoncomp from "./buttons/buttons"
 import { useContext } from "react"
 import { store } from "@/app/state"
 
@@ -23,7 +23,7 @@ export default function Forms(){
         */
     }
     return (
-        <Form action={onSubmit}className={`${styles.mainContainer}`}>
+        <Form action={onSubmit}className={`${styles.form}`}>
             <Sidebar/>
             <Personalinfo/>
             <SelectPlan/>
